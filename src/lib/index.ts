@@ -1,3 +1,4 @@
+import { invalidateAll } from '$app/navigation';
 import type { APIResponse } from './type';
 
 export const toggleLang = async (lang: string) => {
@@ -14,7 +15,7 @@ export const toggleLang = async (lang: string) => {
 		const { success, message }: APIResponse = await res.json();
 		if (success) {
 			// alert(message || 'Lang changed');
-			location.reload();
+			await invalidateAll();
 		} else {
 			alert(message);
 		}
