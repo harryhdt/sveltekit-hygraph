@@ -1,8 +1,10 @@
 import { invalidateAll } from '$app/navigation';
+import { AppStore } from './stores/app.svelte';
 import type { APIResponse } from './type';
 
 export const toggleLang = async (lang: string) => {
 	try {
+		AppStore.toggleShowLoading(true);
 		const res = await fetch('/api/lang', {
 			method: 'POST',
 			headers: {
@@ -15,11 +17,16 @@ export const toggleLang = async (lang: string) => {
 		const { success, message }: APIResponse = await res.json();
 		if (success) {
 			// alert(message || 'Lang changed');
-			await invalidateAll();
+			await Promise.all([
+				new Promise((resolve) => setTimeout(resolve, 2000)), // 5 sec is cache ttl, but we just need 2sec for make sure tolerance
+				invalidateAll()
+			]);
 		} else {
 			alert(message);
 		}
 	} catch (error) {
 		console.warn(error);
+	} finally {
+		AppStore.toggleShowLoading(false);
 	}
 };

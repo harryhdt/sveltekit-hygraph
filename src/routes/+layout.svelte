@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { navigating } from '$app/stores';
+	import { AppStore } from '$lib/stores/app.svelte';
 
 	let showLoader = $state(false);
 
@@ -19,8 +20,12 @@
 	const { children } = $props();
 </script>
 
-{#if showLoader}
-	<div>Loading...</div>
+{#if showLoader || AppStore.showLoading}
+	<div
+		style="position: fixed; inset: 0;background:#ffffff77;cursor: wait;backdrop-filter: blur(4px);"
+	>
+		Loading...
+	</div>
 {/if}
 
 {@render children()}
