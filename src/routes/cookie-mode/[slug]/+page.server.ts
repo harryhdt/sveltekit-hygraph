@@ -21,7 +21,7 @@ export const load: PageServerLoad = async ({ parent, params, setHeaders }) => {
 		console.log(`Cache hit: ${cacheKey}`);
 	}
 	//
-	setHeaders(cacheHeaders);
+	setHeaders(cacheHeaders());
 	//
 	return {
 		data

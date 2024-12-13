@@ -1,26 +1,26 @@
-<script lang="ts">
-	import { toggleLang } from '$lib';
-	import Head from '$lib/components/Head.svelte';
-	import type { PageData } from './$types';
-
-	const { data }: { data: PageData } = $props();
-</script>
-
-<Head title="Sveltekit + Hygraph" description="is a Sveltekit + Hygraph" />
-
-<button onclick={() => toggleLang(data.lang)}>Toggle lang</button>
-<br />
-{JSON.stringify(data.data?.length)}
-<br />
-Lang: {data.lang}
-<br />
-<br />
-{#if data.data}
-	{#each data.data as product}
-		{JSON.stringify(product)}
-		<br />
-		<a href="/{product.slug}">{product.name}</a>
-		<br />
-		<br />
-	{/each}
-{/if}
+<div>
+	<a href="/cookie-mode"> Cookie mode </a>
+	|
+	<a href="/url-mode"> URL mode </a>
+	<br /><br />
+	Cookie mode:
+	<br />
+	- at least need 5sec loading when switch language, and simple/short time cached
+	<br />
+	- have a medium complexity on behind
+	<br />
+	- but nice url structure
+	<br />
+	- Little bad experience when navigating pages, because short time cache
+	<br /><br />
+	URL mode:
+	<br />
+	- no need more waiting when switch language, and great cached
+	<br />
+	- clean and simple logic on behind
+	<br />
+	- but have a little complex url structure
+	<br />
+	- Smooth and happy experienced when navigating pages
+	<br /><br /><br />
+</div>

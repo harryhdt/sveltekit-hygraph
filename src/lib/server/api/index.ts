@@ -8,8 +8,8 @@ const hygraph = new GraphQLClient(HYGRAPH_URL, {
 });
 
 export const SUPPORTED_LANGUAGES = ['en', 'fr'];
-const language = (lang: string) => {
-	if (!SUPPORTED_LANGUAGES.includes(lang)) lang = 'en'; // fallback
+export const language = (lang: string | undefined) => {
+	if (!SUPPORTED_LANGUAGES.includes(lang || '')) lang = 'en'; // fallback
 	return lang;
 };
 
