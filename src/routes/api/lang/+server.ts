@@ -1,4 +1,5 @@
 import { SUPPORTED_LANGUAGES } from '$lib/server/api';
+import { AppCache } from '$lib/server/api/cache';
 import { apiResponse } from '$lib/server/helpers/response';
 import type { RequestHandler } from '@sveltejs/kit';
 
@@ -16,6 +17,8 @@ export const POST: RequestHandler = async ({ request, cookies }) => {
 			}
 		);
 	}
+	//
+	await AppCache.clear();
 	//
 	cookies.set('lang', lang, {
 		path: '/',
