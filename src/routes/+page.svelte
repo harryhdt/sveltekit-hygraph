@@ -22,4 +22,8 @@
 	- but have a little complex url structure
 	<br />
 	+ Smooth and more fast when navigating pages
+	<br /><br /><br />
+	Hygraph
+	<br />
+	at least wait about 60 secs after content changing for getting up to date data
 </div>
