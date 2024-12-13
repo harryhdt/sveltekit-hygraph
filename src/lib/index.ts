@@ -17,7 +17,7 @@ export const toggleLang = async (lang: string) => {
 		const { success, message }: APIResponse = await res.json();
 		if (success) {
 			// alert(message || 'Lang changed');
-			// await new Promise((resolve) => setTimeout(resolve, 5000));
+			await new Promise((resolve) => setTimeout(resolve, 5000));
 			await invalidateAll();
 		} else {
 			alert(message);

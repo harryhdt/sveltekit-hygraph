@@ -5,7 +5,7 @@
 	<br /><br />
 	Cookie mode:
 	<br />
-	- at least need 3sec loading when switch language
+	- at least need 5 - 8sec loading when switch language
 	<br />
 	- have a medium complexity on behind
 	<br />
