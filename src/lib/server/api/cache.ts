@@ -5,8 +5,8 @@ export const AppCache = new Keyv(undefined, {
 	ttl: 60 * 1000 // 60 secs
 });
 
-// 30 sec
-export const cacheHeaders = (maxAge = 30) => ({
+// 3 sec
+export const cacheHeaders = (maxAge = 3) => ({
 	'cache-control': `max-age=${maxAge}`,
 	Vary: 'Cookie, Accept-Language' // not support by cloudflare pages :(
 });

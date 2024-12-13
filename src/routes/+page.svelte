@@ -5,22 +5,21 @@
 	<br /><br />
 	Cookie mode:
 	<br />
-	- at least need 5sec loading when switch language, and simple/short time cached
+	- at least need 3sec loading when switch language
 	<br />
 	- have a medium complexity on behind
 	<br />
-	- but nice url structure
+	+ nice url structure
 	<br />
-	- Little bad experience when navigating pages, because short time cache
+	- Little slow experience when navigating pages
 	<br /><br />
 	URL mode:
 	<br />
-	- no need more waiting when switch language, and great cached
+	+ no need more waiting when switch language
 	<br />
-	- clean and simple logic on behind
+	+ clean and simple logic on behind
 	<br />
 	- but have a little complex url structure
 	<br />
-	- Smooth and happy experienced when navigating pages
-	<br /><br /><br />
+	+ Smooth and more fast when navigating pages
 </div>
