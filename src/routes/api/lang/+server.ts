@@ -21,7 +21,7 @@ export const POST: RequestHandler = async ({ request, cookies, setHeaders }) => 
 	await AppCache.clear();
 	//
 	setHeaders({
-		'Clear-Site-Data': 'cache'
+		'Clear-Site-Data': '"cache"'
 	});
 	//
 	cookies.set('lang', lang, {
