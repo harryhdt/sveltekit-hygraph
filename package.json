@@ -33,7 +33,6 @@
 		"vite": "^6.0.3"
 	},
 	"dependencies": {
-		"keyv": "^5.2.2",
 		"svelte-simple-form": "^0.1.7",
 		"zod": "^3.24.1"
 	}

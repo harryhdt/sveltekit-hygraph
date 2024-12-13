@@ -1,25 +1,19 @@
 import { getProducts } from '$lib/server/api';
-import { AppCache } from '$lib/server/api/cache';
-import type { ProductType } from '$lib/type';
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
+import { cacheHeaders } from '$lib/server/api/cache';
 
-export const load: PageServerLoad = async ({ parent }) => {
+export const load: PageServerLoad = async ({ parent, setHeaders }) => {
 	const parentData = await parent();
 	const lang = parentData.lang;
 	//
-	const cacheKey = `${lang}-products`;
-	let data = await AppCache.get<ProductType[] | null>(cacheKey);
+	const data = await getProducts(lang);
 	if (!data) {
-		data = await getProducts(lang);
-		if (!data) {
-			// handle error
-			error(404, 'Products not found');
-		}
-		await AppCache.set(cacheKey, data);
-	} else {
-		console.log(`Cache hit: ${cacheKey}`);
+		// handle error
+		error(500, 'Internal server error');
 	}
+	//
+	setHeaders(cacheHeaders);
 	//
 	return {
 		data
