@@ -1,4 +1,4 @@
-// import { invalidateAll } from '$app/navigation';
+import { invalidateAll } from '$app/navigation';
 import { AppStore } from './stores/app.svelte';
 import type { APIResponse } from './type';
 
@@ -18,7 +18,7 @@ export const toggleLang = async (lang: string) => {
 		if (success) {
 			// alert(message || 'Lang changed');
 			// await new Promise((resolve) => setTimeout(resolve, 3500));
-			// await invalidateAll();
+			await invalidateAll();
 			// await new Promise((resolve) => setTimeout(resolve, 1500));
 			await new Promise((resolve) => setTimeout(resolve, 500));
 			location.reload();
