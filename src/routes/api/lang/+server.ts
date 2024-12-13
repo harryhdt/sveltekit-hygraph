@@ -3,7 +3,7 @@ import { AppCache } from '$lib/server/api/cache';
 import { apiResponse } from '$lib/server/helpers/response';
 import type { RequestHandler } from '@sveltejs/kit';
 
-export const POST: RequestHandler = async ({ request, cookies, setHeaders }) => {
+export const POST: RequestHandler = async ({ request, cookies }) => {
 	const body = await request.json();
 	const lang = body.lang;
 	if (!SUPPORTED_LANGUAGES.includes(lang)) {
@@ -19,10 +19,6 @@ export const POST: RequestHandler = async ({ request, cookies, setHeaders }) => 
 	}
 	//
 	await AppCache.clear();
-	//
-	setHeaders({
-		'Clear-Site-Data': '"cache"'
-	});
 	//
 	cookies.set('lang', lang, {
 		path: '/',
